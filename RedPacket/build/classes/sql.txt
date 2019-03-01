@@ -1,0 +1,25 @@
+CREATE TABLE T_RED_PACKET(
+	id INT(12) NOT NULL AUTO_INCREMENT,
+	user_id INT(12) NOT NULL,
+	amount DECIMAL(16, 2) NOT NULL,
+	send_date TIMESTAMP NOT NULL,
+	total INT(12) NOT NULL,
+	unit_amount DECIMAL(12) NOT NULL,
+	stock INT(12) NOT NULL,
+	version INT(12) NOT NULL DEFAULT 0,
+	note VARCHAR(256),
+	PRIMARY KEY CLUSTERED (id)
+);
+
+CREATE TABLE T_USER_RED_PACKET(
+	id INT(12) NOT NULL AUTO_INCREMENT,
+	red_packet_id INT(12) NOT NULL,
+	user_id INT(12) NOT NULL,
+	amount DECIMAL(16, 2) NOT NULL,
+	grap_time TIMESTAMP NOT NULL,
+	note VARCHAR(256),
+	PRIMARY KEY CLUSTERED (id)
+);
+
+INSERT INTO T_RED_PACKET(user_id, amount, send_date, total, unit_amount, stock, note)
+VALUES(1, 200000.00, now(), 20000, 10.00, 20000, '20W Red Packet, 2W Small Red Packet, Everyone Ten YUAN');
